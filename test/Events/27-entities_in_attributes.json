@@ -4,7 +4,7 @@
     "handler": {},
     "parser": {"decodeEntities": true}
   },
-  "html": "<foo bar=&amp; baz=\"&amp;\" boo='&amp;' bash={&amp;}  noo=>",
+  "html": "<foo bar=&amp; baz=\"&amp;\" boo='&amp;' bash={&amp;} bear={{&amp;}} noo=>",
   "expected": [
     {
       "event": "opentagname",
@@ -43,6 +43,13 @@
     {
       "event": "attribute",
       "data": [
+        "bear",
+        "{&}"
+      ]
+    },
+    {
+      "event": "attribute",
+      "data": [
         "noo",
         ""
       ]
@@ -56,6 +63,7 @@
           "baz": "&",
           "boo": "&",
           "bash": "&",
+          "bear": "{&}",
           "noo": ""
         }
       ]
